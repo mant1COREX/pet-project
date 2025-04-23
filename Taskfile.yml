@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - docker-compose build test-task
+  run:
+    cmds:
+      - docker-compose up test-task
+  migrate-up:
+    cmds:
+      - migrate -path ./migrations -database postgres://postgres:qwerty123456@localhost:5432/postgres?sslmode=disable up
+  down:
+    cmds:
+      - docker-compose down
